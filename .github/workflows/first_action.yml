@@ -28,7 +28,7 @@ jobs:
     runs-on:
       - self-hosted
       - linux
-    output:
+    outputs:
       cluster: '${{ steps.get-cluster-step.outputs.cluster}}'
     steps:
       - id: get-cluster-step
