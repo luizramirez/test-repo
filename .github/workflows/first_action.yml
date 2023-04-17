@@ -21,7 +21,7 @@ jobs:
       - name: pre-check
         run: |
             echo "Log Level : $LEVEL"
-            echo "Test"
+            echo "Test: $NAMESPACE"
             echo "Env"
         env:
           LEVEL: "max"
