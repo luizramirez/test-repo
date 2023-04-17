@@ -1,6 +1,6 @@
 name: Comment when opened
 run-name: ${{ github.actor }} is learing GitHub Actions
-on: [push]
+on:
   workflow_dispatch: {}
   schedule:
   - cron: '0 */4 * * *'
