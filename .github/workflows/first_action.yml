@@ -24,7 +24,18 @@ jobs:
             echo "Test: $NAMESPACE"
             echo "Env"
         env:
-          LEVEL: "max"
+          LEVEL: "max"\
+    get-cluster:
+      runs-on:
+        - self-hosted
+        - linux
+      output:
+        cluster: '${{ steps.get-cluster-step.outputs.cluster}}'
+      steps:
+      - id: get-cluster-step
+        run: >-
+          echo -n "::set-output name=cluster::cluster=" ; echo
+          ${{secrets.CLUSTER_NAME}} | base64 --decode
 #      - uses: actions/checkout@v2
 #        with:
 #          fetch-depth: 0
