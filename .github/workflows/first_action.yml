@@ -14,7 +14,12 @@ jobs:
       NAMESPACE: lram
     runs-on: self-hosted
     steps:
-      - run: |
+      - uses: actions/checkout@v2
+        with:
+          fetch_depth: 0
+          ref: main
+      - name: pre-check
+        run: |
             echo "Log Level : $LEVEL"
             echo "Test"
             echo "Env"
