@@ -24,7 +24,7 @@ jobs:
             echo "Test: $NAMESPACE"
             echo "Env"
         env:
-          LEVEL: "max"\
+          LEVEL: "max"
     get-cluster:
       runs-on:
         - self-hosted
