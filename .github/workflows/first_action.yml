@@ -1,13 +1,8 @@
 name: Comment when opened
-on:
-  push:
-   branches:
-     - 'main'
+run-name: ${{ github.actor }} is learing GitHub Actions
+on: [push]
 jobs:
-  comment:
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - run: gh issue comment TESTING --body "Thank you for opening this issue!"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.html_url }}
+      - uses: actions/checkout@v3
