@@ -8,7 +8,7 @@ on:
 
 concurrency:
   #group: build-and-test-on-push
-  group: test-on-push-${{ github.head_ref }}
+  group: test-on-push-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 
@@ -19,7 +19,8 @@ jobs:
     steps:
       - name: output ref head
         run: |
-          echo "${{ github.head_ref }}"
+          echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >>$GITHUB_OUTPUT
+          echo "${GITHUB_OUTPUT}"
       - name: Build the code
         run: |
           echo "Starting code build"
@@ -41,3 +42,5 @@ jobs:
         run: >-
           echo -n "::set-output name=cluster::cluster=" ; echo
           ${{secrets.CLUSTER_NAME}} | base64 --decode
+
+          run: echo "{name}={value}" >> $GITHUB_STATE
