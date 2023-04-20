@@ -1,5 +1,5 @@
 name: Comment when opened
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: ${{ github.actor }} is learning GitHub Actions again
 on:
   push:
     branches:
