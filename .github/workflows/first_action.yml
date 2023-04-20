@@ -8,33 +8,22 @@ on:
   #schedule:
   #- cron: '0 */4 * * *'
 
+concurrency:
+  group: build-and-test-on-push
+
+
 jobs:
-  build:
-    needs: get-cluster
-    runs-on: '${{needs.get-cluster.outputs.cluster}}'
+  build-and-test:
+    name: Build and Test on Push
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: main
-      - name: pre-check
+      - name: Build the code
         run: |
-            echo "Log Level : $LEVEL"
-            echo "Test: $NAMESPACE"
-            echo "Env"
-        env:
-          LEVEL: "max"
-  get-cluster:
-    runs-on:
-      - self-hosted
-    outputs:
-      cluster: '${{ steps.get-cluster-step.outputs.cluster}}'
-    steps:
-      - id: get-cluster-step
-        run: >-
-          echo -n "::set-output name=cluster::cluster=" ; echo
-          ${{secrets.CLUSTER_NAME}} | base64 --decode
-#      - uses: actions/checkout@v2
-#        with:
-#          fetch-depth: 0
-#          ref: main
+          echo "Starting code build"
+          sleep 2m
+          echo "Finish code buikd"
+      -name: Test the code
+        run: |
+          echo "Starting code TEst"
+          sleep 2m
+          echo "Finish Test code"
