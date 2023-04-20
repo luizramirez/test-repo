@@ -23,12 +23,12 @@ jobs:
       - name: Build the code
         run: |
           echo "Starting code build"
-          sleep 2m
+          sleep 2
           echo "Finish code buikd"
       - name: Test the code
         run: |
           echo "Starting code TEst"
-          sleep 2m
+          sleep 2
           echo "Finish Test code"
 
   get-cluster:
