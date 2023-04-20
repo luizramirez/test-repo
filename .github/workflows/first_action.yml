@@ -40,5 +40,11 @@ jobs:
     steps:
       - id: get-cluster-step
         run: >-
-          echo -n "::set-output name=cluster::cluster=" ; echo
+          echo "{name}"={cluster}" >> $GITHUB_OUTPUT ; echo
           ${{secrets.CLUSTER_NAME}} | base64 --decode
+
+
+#echo -n "::set-output name=cluster::cluster=" ; echo
+##${{secrets.CLUSTER_NAME}} | base64 --decode
+
+      
