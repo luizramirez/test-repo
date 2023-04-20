@@ -42,5 +42,3 @@ jobs:
         run: >-
           echo -n "::set-output name=cluster::cluster=" ; echo
           ${{secrets.CLUSTER_NAME}} | base64 --decode
-
-          run: echo "{name}={value}" >> $GITHUB_STATE
