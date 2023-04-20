@@ -17,9 +17,11 @@ jobs:
     name: Build and Test on Push
     runs-on: ubuntu-latest
     steps:
-      - name: Build the code
+      - name: output ref head
         run: |
           echo "${{ github.head_ref }}"
+      - name: Build the code
+        run: |
           echo "Starting code build"
           sleep 2m
           echo "Finish code buikd"
