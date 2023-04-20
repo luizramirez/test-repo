@@ -33,8 +33,7 @@ jobs:
 
   get-cluster:
     runs-on:
-      - self-hosted
-      - linux
+      - ubuntu-latest
     outputs:
      cluster: '${{ steps.get-cluster-step.outputs.cluster}}'
     steps:
