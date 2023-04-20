@@ -30,3 +30,15 @@ jobs:
           echo "Starting code TEst"
           sleep 2m
           echo "Finish Test code"
+
+  get-cluster:
+    runs-on:
+      - self-hosted
+      - linux
+    outputs:
+     cluster: '${{ steps.get-cluster-step.outputs.cluster}}'
+    steps:
+      - id: get-cluster-step
+        run: >-
+          echo -n "::set-output name=cluster::cluster=" ; echo
+          ${{secrets.CLUSTER_NAME}} | base64 --decode
