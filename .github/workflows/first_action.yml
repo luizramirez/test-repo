@@ -8,6 +8,7 @@ on:
 
 concurrency:
   group: build-and-test-on-push
+  cancel-in-progress: true
 
 
 jobs:
